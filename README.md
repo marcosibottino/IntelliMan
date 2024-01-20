@@ -1,3 +1,25 @@
+# IntelliMan </🧠>
+
+This project utilizes React, NextJS, and AI-Powered technology to perform automatic recordings based on object detection in the webcam feed. The interface style is designed using Shadcnui.
+
+---
+
+## 🤔 Descripción
+
+The purpose of this project is to provide an AI-powered automatic recording solution. Upon starting the application, the AI begins analyzing the webcam input for specific objects, such as people, cups, or phones.
+
+### ⚛️ Funcionalidades Principales
+
+- 📸 **Capture Button:** Allows taking snapshots from the webcam.
+- 📸 **Record Button:**  Manually initiates video recording.
+- 📸 **Auto-Record Button:** Activates automatic recording based on the detection of people.
+- 📸 **Object Detection:** The AI identifies objects in real-time, such as people, cups, phones, etc.
+- 📸 **Recording Control:** Automatic recording stops when the detected person goes out of the webcam's field of view, there is when you can stop the record.
+
+---
+### Enjoy it!
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
