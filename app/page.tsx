@@ -97,6 +97,15 @@ export default function HomePage() {
     [detections],
   );
 
+  /**
+   * Mientras la grabación automática está a cargo, el botón manual no debe
+   * responder: al pulsarlo la grabación se detenía y el propio efecto la
+   * reanudaba de inmediato, porque la persona seguía en cuadro. Los dos
+   * controles peleaban por el mismo estado. La salida sigue estando: apagar el
+   * modo automático corta la grabación.
+   */
+  const autoDriving = autoRecord && recorder.isRecording;
+
   const firstObject = useMemo(
     () => detections.find((d) => d.class !== "person") ?? null,
     [detections],
@@ -372,6 +381,11 @@ export default function HomePage() {
               <span className="tabular-nums opacity-80">
                 {Math.floor(recorder.elapsedMs / 1000)}s
               </span>
+              {autoDriving && (
+                <span className="border-l border-white/30 pl-2 text-[0.68rem] font-normal opacity-90">
+                  {t("status.autoDriving")}
+                </span>
+              )}
             </div>
           )}
 
@@ -405,9 +419,15 @@ export default function HomePage() {
               </ControlButton>
 
               <ControlButton
-                label={recorder.isRecording ? t("controls.recordStop") : t("controls.record")}
+                label={
+                  autoDriving
+                    ? t("controls.recordLocked")
+                    : recorder.isRecording
+                      ? t("controls.recordStop")
+                      : t("controls.record")
+                }
                 onClick={() => recorder.toggle()}
-                disabled={!cameraReady}
+                disabled={!cameraReady || autoDriving}
                 danger={recorder.isRecording}
                 tour="record"
               >

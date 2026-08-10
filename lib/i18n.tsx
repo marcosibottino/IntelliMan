@@ -43,6 +43,8 @@ const es = {
   "controls.record": "Grabar video",
   "controls.recordStop": "Detener grabación",
   "controls.autoRecord": "Grabación automática",
+  "controls.recordLocked":
+    "La grabación automática está a cargo · se detiene sola cuando salgas del cuadro",
   "controls.autoRecordOn": "Grabación automática activada",
   "controls.autoRecordOff": "Grabación automática desactivada",
   "controls.sound": "Sonido de aviso",
@@ -60,6 +62,7 @@ const es = {
   "status.recording": "Grabando",
   "status.autoWaiting": "Esperando a que aparezca una persona",
   "status.autoActive": "Persona detectada · grabando",
+  "status.autoDriving": "Corta sola al salir del cuadro",
   "status.ready": "Listo",
 
   "toast.photoSaved": "Foto descargada",
@@ -110,7 +113,7 @@ const es = {
 
   "tour.auto.title": "Grabación automática",
   "tour.auto.body":
-    "Con esto activado, la grabación arranca sola cuando aparece una persona y se guarda cuando se va del cuadro. Es la función central de la herramienta.",
+    "Con esto activado, la grabación arranca sola cuando aparece una persona y se guarda cuando se va del cuadro. Mientras está a cargo, el botón de grabar queda bloqueado: para cortar antes, apagá este modo. Es la función central de la herramienta.",
 
   "tour.extras.title": "Los ajustes",
   "tour.extras.body":
@@ -152,6 +155,8 @@ const en: Record<keyof typeof es, string> = {
   "controls.record": "Record video",
   "controls.recordStop": "Stop recording",
   "controls.autoRecord": "Auto recording",
+  "controls.recordLocked":
+    "Auto recording is in control · it stops on its own once you leave the frame",
   "controls.autoRecordOn": "Auto recording enabled",
   "controls.autoRecordOff": "Auto recording disabled",
   "controls.sound": "Alert sound",
@@ -169,6 +174,7 @@ const en: Record<keyof typeof es, string> = {
   "status.recording": "Recording",
   "status.autoWaiting": "Waiting for a person to appear",
   "status.autoActive": "Person detected · recording",
+  "status.autoDriving": "Stops on its own when you leave the frame",
   "status.ready": "Ready",
 
   "toast.photoSaved": "Photo downloaded",
@@ -219,7 +225,7 @@ const en: Record<keyof typeof es, string> = {
 
   "tour.auto.title": "Auto recording",
   "tour.auto.body":
-    "With this on, recording starts by itself when a person appears and saves when they leave the frame. It's the core feature of the tool.",
+    "With this on, recording starts by itself when a person appears and saves when they leave the frame. While it's in control the record button is locked — to cut early, switch this mode off. It's the core feature of the tool.",
 
   "tour.extras.title": "The settings",
   "tour.extras.body":
