@@ -127,7 +127,16 @@ export function TourOverlay({
     step.id === "show" ? { examples } : undefined;
 
   return (
-    <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label={t(step.titleKey)}>
+    // `pointer-events-none` en el contenedor es lo que permite que el usuario
+    // realmente use el control resaltado: sin esto, este div a pantalla completa
+    // intercepta cada clic y los pasos interactivos son imposibles de completar.
+    // El globo y el velo de los pasos centrados vuelven a habilitarlo.
+    <div
+      className="pointer-events-none fixed inset-0 z-50"
+      role="dialog"
+      aria-modal="true"
+      aria-label={t(step.titleKey)}
+    >
       {/* Oscurecido con recorte. El box-shadow gigante pinta todo menos el hueco,
           así el elemento resaltado sigue siendo visible y clicleable. */}
       {rect ? (
@@ -142,12 +151,12 @@ export function TourOverlay({
           }}
         />
       ) : (
-        <div className="absolute inset-0 bg-[rgba(3,7,18,0.78)]" onClick={onClose} />
+        <div className="pointer-events-auto absolute inset-0 bg-[rgba(3,7,18,0.78)]" onClick={onClose} />
       )}
 
       <div
         ref={tooltipRef}
-        className="absolute rounded-2xl border border-white/10 bg-zinc-900 p-5 text-zinc-100 shadow-2xl"
+        className="pointer-events-auto absolute rounded-2xl border border-white/10 bg-zinc-900 p-5 text-zinc-100 shadow-2xl"
         style={tooltipStyle}
       >
         <div className="flex items-start justify-between gap-3">
